@@ -1,0 +1,54 @@
+class Node{
+    int data;
+    Node next;
+    Node(int data){
+        this.data=data;
+        this.next=null;
+    }
+}
+class LL{
+    public boolean isempty(){
+        return head==null;
+    }
+    Node head=null;
+    void addfirst(int val){
+        Node newnode=new Node(val);
+
+        if(isempty()){
+            head=newnode;
+            return;
+        }
+        newnode.next=head;
+        head=newnode;
+    }
+    void addlast(int val){
+        Node newnode=new Node(val);
+        Node curr=head;
+        newnode.data=val;
+        while(curr.next!=null){
+            curr=curr.next;
+        }
+        curr.next=newnode;
+    }
+    void display(){
+        Node temp=head;
+        while(temp!=null){
+            System.out.print(temp.data+"-->");
+            temp=temp.next;
+        }
+        System.out.println();
+
+    }
+}
+public class Main{
+    public static void main(String[] args){
+        LL n=new LL();
+        n.addfirst(3);
+        n.addfirst(2);
+        n.addfirst(1);
+        n.addlast(4);
+        n.addlast(5);
+        n.display();
+
+    }
+}
